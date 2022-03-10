@@ -486,7 +486,7 @@ def clock(timec):
     return t
 
 #ID for all the outputs
-nr=15 # CHANGE FOR YOUR OWN ID
+nr=25 # CHANGE FOR YOUR OWN ID
 
 # Time shifting flags
 time_compression=0
@@ -503,6 +503,7 @@ scn.write(initial_command)
 datalog_command = time + 'CRELOG DLOG 1.0 Conflict log' + '\n' + time + 'DLOG ADD traf.cd.confpairs,traf.cd.dist, traf.cd.dcpa, traf.cd.tLOS, traf.cd.qdr, traf.cd.track, traf.cd.PHase, traf.cd.ALT'+ '\n' + time + 'DLOG ON'+ '\n'
 scn.write(datalog_command)
 name ='SCN_Data'+str(nr)
+exit()
 #%%
 # Load the data otained from OpenSky
 var = open('Data_final\Data'+str(nr)+'.pickle', 'rb')
@@ -539,7 +540,7 @@ if time_compression or time_random:
     actualdata=data[0]
 actualdata = actualdata.sort_values(['time'], ascending=True)
 
-#%%
+
 # Write actual flight points information in the scenario file
 time = '00:00:00>'
 
